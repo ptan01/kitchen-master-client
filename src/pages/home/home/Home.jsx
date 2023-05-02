@@ -10,8 +10,8 @@ const Home = () => {
     return (
         <div>
             <Header></Header>
-            <h2>this is home</h2>
-            <div className='grid gap-4 grid-cols-3 '>
+            <h2 className='text-4xl text-center my-20'>Our Best Chefs</h2>
+            <div className='grid gap-4 lg:grid-cols-3 '>
             {
                 chefsData.map(chef => <Chefs key={chef.id} chef={chef}></Chefs>)
             }
