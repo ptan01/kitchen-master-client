@@ -4,8 +4,11 @@ import { FaRegStar , FaStar } from 'react-icons/fa';
 
 
 const RecipeCard = ({ recipe }) => {
-    console.log(recipe)
+    
     const { recipeName, rating, ingredients, cookingMethod } = recipe
+
+
+
     return (
         <div className="card w-full bg-base-100 shadow-xl">
             <div className="card-body">
@@ -24,7 +27,7 @@ const RecipeCard = ({ recipe }) => {
                         placeholderSymbol={<FaStar></FaStar>}
                         fullSymbol={<FaStar></FaStar>}
                     />
-                    <button className="btn btn-primary">Buy Now</button>
+                    <button className="btn btn-primary">Try Now</button>
                 </div>
             </div>
         </div>
