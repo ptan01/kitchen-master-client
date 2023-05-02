@@ -1,0 +1,7 @@
+.bg-img{
+    background-image: url('../../../assets/photo-1600565193348-f74bd3c7ccdf.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: blur(px);
+}
