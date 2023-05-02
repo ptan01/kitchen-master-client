@@ -3,12 +3,14 @@ import Main from "../leyout/Main";
 import Home from "../pages/home/home/Home";
 import Blog from "../pages/blog/Blog";
 import ChefRecipe from "../pages/chef/chefRecipe/ChefRecipe";
+import ErrorPage from "../pages/errorPage/ErrorPage";
 
 
 const router = createBrowserRouter([
     {
         path: '/',
         element: <Main></Main>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: '/',
