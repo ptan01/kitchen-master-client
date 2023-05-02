@@ -6,6 +6,9 @@ import { useLoaderData } from 'react-router-dom';
 const Home = () => {
 
     const chefsData = useLoaderData()
+    if(!chefsData){
+        return <progress className="progress w-56"></progress>
+    }
 
     return (
         <div>

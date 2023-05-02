@@ -29,6 +29,7 @@ const ChefRecipe = () => {
                 </div>
             </div>
             <div className='grid grid-cols-3 gap-4'>
+                {/* dynamic chef recipe array  */}
             {
                 chef.recipe.map((rsp , i) => <RecipeCard key={i} recipe={rsp}></RecipeCard>)
             }
