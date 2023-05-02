@@ -2,6 +2,7 @@ import React from 'react';
 import Header from '../Header/Header';
 import Chefs from '../chefs/Chefs';
 import { useLoaderData } from 'react-router-dom';
+import ChifSpecialties from '../chifSpecilities/ChifSpecialties';
 
 const Home = () => {
 
@@ -19,6 +20,7 @@ const Home = () => {
                 chefsData.map(chef => <Chefs key={chef.id} chef={chef}></Chefs>)
             }
             </div>
+            <ChifSpecialties></ChifSpecialties>
         </div>
     );
 };
