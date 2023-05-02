@@ -10,7 +10,8 @@ const router = createBrowserRouter([
         children: [
             {
                 path: '/',
-                element: <Home></Home>
+                element: <Home></Home>,
+                loader: ()=> fetch('https://the-chef-recipe-server-ptan01.vercel.app/chefs')
             },
             {
                 path: '/blog',
