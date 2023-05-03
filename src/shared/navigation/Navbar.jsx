@@ -3,7 +3,8 @@ import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../privetRoute_Provider/AuthProvider';
 
 const Navbar = () => {
-    const { tanjim } = useContext(AuthContext)
+    const { user } = useContext(AuthContext)
+    console.log(user)
     return (
         <div className="navbar bg-base-100">
             <div className="navbar-start">
@@ -26,10 +27,10 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                {tanjim ?
+                {user ?
                     <div className="avatar placeholder">
-                        <div title='tanjim islam' className="bg-neutral-focus text-neutral-content rounded-full w-12">
-                            <img src="https://avatars.githubusercontent.com/u/121638789?v=4" alt="" />
+                        <div title={user.displayName} className="bg-neutral-focus text-neutral-content rounded-full w-12">
+                            <img src={user.photoURL} alt="" />
                         </div>
                     </div> 
                     :

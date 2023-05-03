@@ -1,7 +1,13 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../privetRoute_Provider/AuthProvider';
+
 
 const Login = () => {
+
+    const {loginUser} = useContext(AuthContext)
+
+
     const [error , setError] = useState('')
     const [success, setSuccess] = useState('')
 
@@ -11,6 +17,16 @@ const Login = () => {
         const email = form.email.value ;
         const pass = form.password.value;
         console.log(email, pass)
+        loginUser(email, pass)
+        .then(result => {
+            console.log(result.user)
+            setSuccess('login success fully')
+          
+        })
+        .catch(err=>{
+            console.log(err.message)
+            setError(err.message)
+        })
     }
 
     return (
