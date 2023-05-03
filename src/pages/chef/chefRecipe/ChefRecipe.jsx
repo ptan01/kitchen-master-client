@@ -24,7 +24,10 @@ const ChefRecipe = () => {
                     <div>
                         <h1 className="text-5xl font-bold">{chef.chefName}</h1>
                         <p className="py-6">{chef.bio}</p>
-                        <button onClick={handleFavorite} className='btn btn-primary' disabled={oneClick}>Add To Favorite</button>
+                        <p>Experience: {chef.experience}</p>
+                        <p>Like: {chef.likes}</p>
+                        <p>Recipes {chef.numberOfRecipes}</p>
+                        <button onClick={handleFavorite} className='btn btn-primary my-2' disabled={oneClick}>Add To Favorite</button>
                     </div>
                 </div>
             </div>
