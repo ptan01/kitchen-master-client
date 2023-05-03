@@ -8,7 +8,7 @@ const Blog = () => {
     return (
         <div>
             <Pdf targetRef={ref} filename="code-example.pdf">
-                {({ toPdf }) => <button onClick={toPdf}>Generate Pdf</button>}
+                {({ toPdf }) => <button className='btn btn-sm ' onClick={toPdf}>Generate Pdf</button>}
             </Pdf>
             <div ref={ref} className='flex gap-4'>
                 <div className='card w-96 bg-base-100 shadow-xl'>
