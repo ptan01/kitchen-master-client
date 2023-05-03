@@ -4,6 +4,8 @@ import Home from "../pages/home/home/Home";
 import Blog from "../pages/blog/Blog";
 import ChefRecipe from "../pages/chef/chefRecipe/ChefRecipe";
 import ErrorPage from "../pages/errorPage/ErrorPage";
+import Login from "../pages/login/Login";
+import Register from "../pages/register/Register";
 
 
 const router = createBrowserRouter([
@@ -25,6 +27,14 @@ const router = createBrowserRouter([
                 path: '/recipe/:id',
                 element: <ChefRecipe></ChefRecipe>,
                 loader: ({params})=> fetch(`https://the-chef-recipe-server-ptan01.vercel.app/chefs/${params.id}`)
+            },
+            {
+                path: '/login',
+                element: <Login></Login>
+            },
+            {
+                path: '/register',
+                element: <Register></Register>
             }
          
         ]

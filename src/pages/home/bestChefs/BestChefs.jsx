@@ -7,7 +7,7 @@ const BestChefs = () => {
                 <p className='font-semibold text-red-700'>OUR TEAM OF PROFFESIONALS</p>
                 <h2 className='text-4xl'>Best Chefs Of Italy</h2>
             </div>
-            <div className='mb-32 mt-20 flex gap-12 justify-center'>
+            <div className='mb-32 mt-20 md:flex gap-12 justify-center'>
 
 
                 <div className='w-[300px]'>
