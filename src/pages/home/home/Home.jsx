@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Header from '../Header/Header';
 import Chefs from '../chefs/Chefs';
 import { useLoaderData } from 'react-router-dom';
 import ChifSpecialties from '../chifSpecilities/ChifSpecialties';
 import BestChefs from '../bestChefs/BestChefs';
+import { AuthContext } from '../../../privetRoute_Provider/AuthProvider';
 
 const Home = () => {
+    const {tanjim} = useContext(AuthContext)
+    console.log(tanjim)
 
     const chefsData = useLoaderData()
     if(!chefsData){

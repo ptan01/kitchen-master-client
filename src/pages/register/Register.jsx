@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const Register = () => {
-
+    const [error, setError] = useState('')
+    const [success, setSuccess] = useState('')
 
     const handleRegister = (e)=>{
         e.preventDefault()
@@ -12,6 +13,10 @@ const Register = () => {
         const name =form.name.value ;
         const photo = form.photo.value ;
         console.log(email, pass, name, photo)
+        if(pass.length < 6){
+            setError('please your password Minimum six characters')
+            return
+        }
     }
 
 
@@ -39,13 +44,13 @@ const Register = () => {
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
-                            <input type="email" name='email' placeholder="email" className="input input-bordered" />
+                            <input type="email" name='email' placeholder="email" className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input type="password" name='password' placeholder="password" className="input input-bordered" />
+                            <input type="password" name='password' placeholder="password" className="input input-bordered" required />
 
                         </div>
                         <div className="form-control mt-6">
@@ -53,6 +58,12 @@ const Register = () => {
                         </div>
                         <label className="label">
                             <span>Already Have an Account ? Please <Link className='text-red-700' to='/login'>Login</Link></span>
+                        </label>
+                        <label className="label">
+                            <span className='text-red-500'>{error}</span>
+                        </label>
+                        <label className="label">
+                            <span className='text-green-500'>{success}</span>
                         </label>
                     </form>
                 </div>

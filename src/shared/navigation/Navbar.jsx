@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { AuthContext } from '../../privetRoute_Provider/AuthProvider';
 
 const Navbar = () => {
+    const { tanjim } = useContext(AuthContext)
     return (
         <div className="navbar bg-base-100">
             <div className="navbar-start">
@@ -24,7 +26,16 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-               <Link className='btn' to='/login'>Login</Link>
+                {tanjim ?
+                    <div className="avatar placeholder">
+                        <div title='tanjim islam' className="bg-neutral-focus text-neutral-content rounded-full w-12">
+                            <img src="https://avatars.githubusercontent.com/u/121638789?v=4" alt="" />
+                        </div>
+                    </div> 
+                    :
+                    <Link className='btn' to='/login'>Login</Link>
+
+                }
             </div>
         </div>
     );
