@@ -1,15 +1,17 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../privetRoute_Provider/AuthProvider';
+import { FaGoogle , FaGithub} from 'react-icons/fa';
 
 
 const Login = () => {
 
-    const {loginUser} = useContext(AuthContext)
+    const {loginUser ,googleLogin, githubLogin} = useContext(AuthContext)
 
 
     const [error , setError] = useState('')
     const [success, setSuccess] = useState('')
+    const navigate = useNavigate()
 
     const handleLogin = (e)=>{
         e.preventDefault()
@@ -21,10 +23,35 @@ const Login = () => {
         .then(result => {
             console.log(result.user)
             setSuccess('login success fully')
+            form.reset()
+            navigate('/')
+
           
         })
         .catch(err=>{
             console.log(err.message)
+            setError(err.message)
+        })
+    }
+
+    const handleGoogle = () =>{
+        googleLogin()
+        .then(result => {
+            setSuccess('google login success fully')
+            navigate('/')
+        })
+        .catch(err => {
+            setError(err.message)
+        })
+    }
+
+    const handleGithub = ()=>{
+        githubLogin()
+        .then(()=>{
+            setSuccess('github login success fully')
+            navigate('/')
+        })
+        .catch(err=>{
             setError(err.message)
         })
     }
@@ -63,6 +90,11 @@ const Login = () => {
                            <span className='text-green-500'>{success}</span>
                         </label>
                     </form>
+                </div>
+                <div>
+                    <button onClick={handleGoogle} className='btn mb-3'> <FaGoogle className='text-2xl mr-2 text-red-700'></FaGoogle> Login with Google</button>
+                    <br />
+                    <button onClick={handleGithub} className='btn '> <FaGithub className='text-2xl mr-2 text-red-700'></FaGithub> Login with Github</button>
                 </div>
             </div>
         </div>

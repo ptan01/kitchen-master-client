@@ -3,8 +3,19 @@ import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../privetRoute_Provider/AuthProvider';
 
 const Navbar = () => {
-    const { user } = useContext(AuthContext)
+    const { user , logOut} = useContext(AuthContext)
     console.log(user)
+
+    const handleLogout = ()=>{
+        logOut()
+        .then(()=>{
+
+        })
+        .catch(err => {
+            console.log(err.message)
+        })
+    }
+
     return (
         <div className="navbar bg-base-100">
             <div className="navbar-start">
@@ -28,11 +39,14 @@ const Navbar = () => {
             </div>
             <div className="navbar-end">
                 {user ?
-                    <div className="avatar placeholder">
-                        <div title={user.displayName} className="bg-neutral-focus text-neutral-content rounded-full w-12">
-                            <img src={user.photoURL} alt="" />
+                    <div className='flex justify-center'>
+                        <button onClick={handleLogout} className='btn mr-3'>Logout</button>
+                        <div className="avatar placeholder">
+                            <div title={user.displayName ? user.displayName : 'your name not available'} className="bg-neutral-focus text-neutral-content rounded-full w-12">
+                                <img src={user.photoURL ? user.photoURL : 'https://static6.depositphotos.com/1008927/570/i/450/depositphotos_5706752-stock-photo-chef-illustration.jpg'} alt="" />
+                            </div>
                         </div>
-                    </div> 
+                    </div>
                     :
                     <Link className='btn' to='/login'>Login</Link>
 

@@ -6,6 +6,7 @@ import ChefRecipe from "../pages/chef/chefRecipe/ChefRecipe";
 import ErrorPage from "../pages/errorPage/ErrorPage";
 import Login from "../pages/login/Login";
 import Register from "../pages/register/Register";
+import PrivetRoute from "../privetRoute_Provider/PrivetRoute";
 
 
 const router = createBrowserRouter([
@@ -25,7 +26,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/recipe/:id',
-                element: <ChefRecipe></ChefRecipe>,
+                element: <PrivetRoute><ChefRecipe></ChefRecipe></PrivetRoute>,
                 loader: ({params})=> fetch(`https://the-chef-recipe-server-ptan01.vercel.app/chefs/${params.id}`)
             },
             {

@@ -24,6 +24,7 @@ const Register = () => {
         .then((result)=>{
             const user = (result.user)
             updateProfile(user, {displayName: name , photoURL: photo})
+            form.reset()
         })
         .catch((err)=>{
             console.log(err.message)
