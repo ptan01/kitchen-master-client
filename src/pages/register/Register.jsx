@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../privetRoute_Provider/AuthProvider';
 
 const Register = () => {
+    const {createUser} = useContext(AuthContext)
     const [error, setError] = useState('')
     const [success, setSuccess] = useState('')
 
@@ -12,11 +14,18 @@ const Register = () => {
         const pass = form.password.value ;
         const name =form.name.value ;
         const photo = form.photo.value ;
-        console.log(email, pass, name, photo)
+   
         if(pass.length < 6){
             setError('please your password Minimum six characters')
             return
         }
+        createUser(email, pass)
+        .then((result)=>{
+            console.log(result.user)
+        })
+        .catch((err)=>{
+            console.log(err.message)
+        })
     }
 
 
