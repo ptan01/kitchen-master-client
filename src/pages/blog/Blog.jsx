@@ -22,6 +22,11 @@ const Blog = () => {
                 <br />
                 <p>Express.js is a web application framework for Node.js that provides a set of tools and features for building web applications and APIs. It simplifies the process of building server-side web applications by providing a set of pre-built modules and middleware for handling HTTP requests, routing, and more.</p>
             </div>
+            <div className='card w-96 bg-base-100 shadow-xl'>
+                <h1 className='text-2xl text-red-700'>What is a custom hook, and why will you create a custom hook?</h1>
+                <p>In React, a custom hook is a JavaScript function that utilizes built-in React hooks to provide a reusable piece of functionality to a component or other custom hooks. Custom hooks allow developers to encapsulate complex logic that can be shared across multiple components.</p>
+               
+            </div>
         </div>
     );
 };

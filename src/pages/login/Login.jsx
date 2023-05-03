@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../privetRoute_Provider/AuthProvider';
-import { FaGoogle , FaGithub} from 'react-icons/fa';
+import { FaGoogle , FaGithub , FaEye ,FaEyeSlash} from 'react-icons/fa';
 
 
 const Login = () => {
@@ -12,6 +12,8 @@ const Login = () => {
     const [error , setError] = useState('')
     const [success, setSuccess] = useState('')
     const navigate = useNavigate()
+    const [show , setShow] = useState(true) 
+
 
     const handleLogin = (e)=>{
         e.preventDefault()
@@ -74,8 +76,13 @@ const Login = () => {
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input type="password" name='password' placeholder="password" className="input input-bordered" />
-
+                            <div className='flex items-center'>
+                            <input  type={show ? 'password' : 'text'} name='password' placeholder="password" className="input w-full input-bordered" /><span onClick={()=>setShow(!show)} >
+                                {
+                                    show ? <FaEye className='text-2xl ml-1'></FaEye> : <FaEyeSlash className='text-2xl ml-1'></FaEyeSlash>
+                                }
+                            </span>
+                            </div>
                         </div>
                         <div className="form-control mt-6">
                             <button className="btn btn-primary">Login</button>
